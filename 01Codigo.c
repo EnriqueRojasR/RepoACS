@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include<unistd.h>
+#include<unistd.h> //usamos esta libreria ya que es la que tiene el comando getpid y getppid
 
 int main()
 {
