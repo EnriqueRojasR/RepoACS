@@ -4,6 +4,8 @@
 
 int main(void)
 {
+  //Nombre del alumno
+  printf("Rojas Ruiz Luis Enrique \n");
   pid_t child;
   if((child = fork()) == -1)
   {
