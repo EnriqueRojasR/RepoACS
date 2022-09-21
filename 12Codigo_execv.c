@@ -5,6 +5,7 @@
 // Este ejemplo muestra la funcion execv con el comando ls -l /
 int main(void)
 {
+  printf("Rojas Ruiz Luis Enrique \n");
   // como es execv entonces es un vector/arreglo
   // el cual debe declararse previo a la llamada a execv
   // la sintaxis es:
