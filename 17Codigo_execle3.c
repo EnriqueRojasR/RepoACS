@@ -7,6 +7,7 @@
 // para leer la variable de entorno USER
 int main(void)
 {
+  printf("Rojas Ruiz Luis Enrique \n");
   puts("En el proceso inicial, antes de llamar a execle\n");
   // como es execle entonces es una lista
   // y ademas puede leer variables de entorno que vienen en un arreglo
@@ -20,8 +21,8 @@ int main(void)
   char *variables_entorno[] = { "PATH=/bin:/usr/bin", "USER=joe", "MI_VARIABLE=acs", NULL };
   printf( "el valor de la variable de entorno USER es: %s\n", getenv("USER") );
   printf( "el valor de la variable de entorno MI_VARIABLE es: %s\n", getenv("MI_VARIABLE") );
-  printf( "ahora ejecutando ./getenv_user2, los valores de las variables de entorno USER y MI_VARIABLE son: \n" );
-  if( execle("./getenv_user2", "./getenv_user2", NULL, variables_entorno) == -1)
+  printf( "ahora ejecutando ./14Codigo_getenv_user2, los valores de las variables de entorno USER y MI_VARIABLE son: \n" );
+  if( execle("./14Codigo_getenv_user2", "./14Codigo_getenv_user2", NULL, variables_entorno) == -1)
   {
     puts("execle genero error y devolvio -1");
     perror("execle");
