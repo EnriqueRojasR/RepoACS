@@ -5,6 +5,7 @@
 // Este ejemplo muestra la funcion execle con el comando ls -l /
 int main(void)
 {
+  printf("Rojas Ruiz Luis Enrique \n");
   // como es execle entonces es una lista
   // y ademas puede leer variables de entorno que vienen en un arreglo
   // y que solo son validas para la ejecucion del archivo dentro de la funcion execle
