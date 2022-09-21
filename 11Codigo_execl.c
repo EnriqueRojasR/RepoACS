@@ -5,6 +5,7 @@
 // Este ejemplo muestra la funcion execl con el comando ls -l /
 int main(void)
 {
+  printf("Rojas Ruiz Luis Enrique \n");
   puts("En el proceso inicial, antes de llamar a execl\n");
   // como es execl entonces es una lista
   // la sintaxis es:
