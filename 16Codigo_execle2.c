@@ -20,7 +20,7 @@ int main(void)
   // con NULL se indica que se llego al final de la lista de argumentos
   char *variables_entorno[] = { "PATH=/bin:/usr/bin", "USER=joe", NULL };
   printf( "el valor de la variable de entorno USER es: %s\n", getenv("USER") );
-  printf( "ahora ejecutando ./getenv_user1, el valor de la variable de entorno USER es: \n" );
+  printf( "ahora ejecutando ./13Codigo_getenv_user1, el valor de la variable de entorno USER es: \n" );
   if( execle("./13Codigo_getenv_user1", "./getenv_user1", NULL, variables_entorno) == -1)
   {
     puts("execle genero error y devolvio -1");
