@@ -1,11 +1,24 @@
+//Rojas Ruiz Luis Enrique
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
 #include <unistd.h>
 #include <sys/wait.h>
 
-//Rojas Ruiz Luis Enrique
 
+/*
+Al analizar el codigo y el comportamiento de este al ejecutarlo, me puedo dar cuenta que en esta ocasión se hizo uso de la llamada a wait(), a diferencia del el primer ejercicio realizado. 
+Ya que en esta ocasión el proceso hijo fue completado sin la interrupcion del proceso padre. 
+Esto se debe a que se hizo una comparacion  utilizando una varible llamada child_status, el cual nos indica el numero de procesos hijo que tiene que esperar antes de terminar con el proceso padre y con esto evitar un proceso zombie o huerfano.
+
+Como se puede observar en el encabezado se indica que se tiene que esperar un proceso hijo, este le indicara al padre que tiene que esperar, es aquí donde entra la funcion wait. 
+Ya ejecutado y terminado el proceso hijo se vuelve a obtener el estado de los hijos, al marcar cero. 
+El proceso padre termina y nos arroja la informacion del arg_wait el cual nos indica cero que significa que termino con normalidad y por medio de una llamada exit()
+
+*/
 int spawn (char* program, char** arg_list)
 {
   pid_t child_pid;
@@ -50,3 +63,4 @@ int main ()
     printf ("the child process exited abnormally\n");
   return 0;
 }
+
