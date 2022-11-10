@@ -43,7 +43,7 @@ int main()
 
  printf("Enviando el mensaje \"Este es un mensaje para el servidor\"\n");
 
- int res_send = send( dfClient, "Este es un mensaje para el servidor\n", 35, 0 );
+ int res_send = send( dfClient, "Este es un mensaje para el servidor\n", 27, 0 );
  printf("res_send=%d\n",res_send);
 
  printf("close(dfClient)\n");
