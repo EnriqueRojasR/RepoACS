@@ -8,8 +8,8 @@
 #include <netdb.h>
 #include <unistd.h>
 
-#define SERVER "localhost"
-//#define SERVER "132.248.59.6"
+//#define SERVER "localhost"
+#define SERVER "132.248.59.6"
 #define PORT 4897
 #define BLEN 128
 
@@ -22,10 +22,7 @@ void main(int argc, char *argv[])
   char *host;
   char respuesta[BLEN];
 
-
   fd_c = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
-
-
 
   // memset((char *) &socket_cliente, 0, sizeof(struct sockaddr_in));
   socket_cliente.sin_family = AF_INET;
