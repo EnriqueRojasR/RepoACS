@@ -7,8 +7,8 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <unistd.h>
+
 #define SERVER "localhost"
-//#define SERVER "132.248.59.6"
 #define PORT 4897
 #define BLEN 128
 
