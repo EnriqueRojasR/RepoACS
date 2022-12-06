@@ -37,7 +37,7 @@ void main( int argc, char *argv[] )
 
   while(1)
   {
-    fd_c = accept(fd_s, (struct sockaddr *) &cliente, &longClient);
+    fd_c = accept(fd_s, (struct sockaddr *) &cliente, &longClient); //acepta un cliente
 
     info_cliente = gethostbyaddr((char *) &cliente.sin_addr, sizeof(struct in_addr), AF_INET);
     /* Lo siguiente es para obtener la fecha y hora y se impriman en pantalla */
@@ -48,6 +48,7 @@ void main( int argc, char *argv[] )
 
     if( fork() == 0 )
     {
+      //estos dos siguientes buffers tienen que estar declarados en el fork (hijos)
       char buf_peticion[256];
       char buf_respuesta[256];
       /* el hijo no necesita el file descriptor del socket servidor,
@@ -71,7 +72,7 @@ void main( int argc, char *argv[] )
       printf("Se ha cerrado la conexion con el cliente... Este hijo termina\n");
       close(fd_c);
       exit( 0 );
-    }
+    } //aqui termina la parte del hijo
     else
     {
       /* El padre no necesita el file descriptor del socket cliente
