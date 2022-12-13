@@ -1,7 +1,7 @@
 import java.net.*;
 import java.io.*;
 
-public class Cliente01
+public class Codigo01_Cliente01
 {
 public static void main(String a[])
 {
