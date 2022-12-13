@@ -1,7 +1,7 @@
 import java.net.*;
 import java.io.*;
 
-public class Servidor01
+public class Codigo01_Servidor01
 {
   public static void main(String a[]) throws Exception
   {
