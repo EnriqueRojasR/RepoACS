@@ -123,6 +123,5 @@ int main(int argc, char *argv[]){
  printf("Client-closing sockfd \n");
  close(sockfd);
  return 0;
-  }
-
 }
+
