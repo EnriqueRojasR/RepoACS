@@ -18,7 +18,9 @@
 //El puerto del cliente al que nos conectaremos
 #define PORT 3490
 //Maximo numero de bytes que usaremos
-#define MAXDATASIZE 300
+#define MAXDATASIZE 3000
+//maximo numero de bytes para la respuesta
+#define MAXDATASIZE_RESP 20000
 
 int main(int argc, char *argv[]){
   int long_mensaje;
@@ -27,7 +29,13 @@ int main(int argc, char *argv[]){
   int sockfd, numbytes;
 
   //Se declara un arreglo de tamaño definido por MAXDATASIZE
-  char buf[MAXDATASIZE];
+  //char comando[MAXDATASIZE];
+  int len_comando;
+
+char buffer[MAXDATASIZE_RESP];
+
+
+  //char buf[MAXDATASIZE_RESP];
 
   //indica que es un host de Internet
   struct hostent *he;
@@ -88,40 +96,37 @@ int main(int argc, char *argv[]){
   //Si la conexion es correcta indica OK
   else
     printf("Client-The connect() is OK...\n");
-  int menu = 0;
+
   do{
-  char mensaje[100];
+  char comando[MAXDATASIZE];
+
   printf("Esperando comando:\n>> ");
-  fgets(mensaje, 100,stdin);
-  long_mensaje = strlen(mensaje);
+  fgets(comando, 100,stdin);
+  len_comando = strlen(comando);
 
   int res_send;
-  if((res_send = send(sockfd, mensaje, long_mensaje, 0)) == -1){
+  if((res_send = send(sockfd, comando, len_comando, 0)) == -1){
     perror("Send");
   exit(1);
-  }
+}else
+printf("Comando enviado... \n");
 
   //'numbytes' es el tamaño que se recibe del Servidor, este se obtiene con el descriptor
   //el buffer donde recibe la Informacion, el tamaño maximo que puede tener el buffer y el protocolo utilizado
   //en caso de que exista un error se imprimira que tipo de error
-  if((numbytes = recv(sockfd, buf, MAXDATASIZE-1, 0)) == -1){
+  if((numbytes = recv(sockfd, buffer, MAXDATASIZE_RESP-1, 0)) == -1){
     perror("recv()");
     exit(1);
   }
-  else if(strcmp(buf,"\n>> HASTA LUEGO \n")==0){
-    menu = menu + 1;
-    exit(1);}
-  else
    //Si todo va bien, se imprime OK
    printf("Client-The recv() is OK...\n");
 
    //Obtenemos la Informacion del buffer
-   buf[numbytes] = '\0';
-   //Imprimimos el buffer que se recibio y cerramos el socket
-   printf("Client-Received: \n\t %s\n", buf);
- }while(menu == 0);
+   buffer[numbytes] = '\0';
+   printf("Client-Received:\n%s\n",buffer);
+
+ }while(len_comando != 0);
  printf("Client-closing sockfd \n");
  close(sockfd);
  return 0;
 }
-

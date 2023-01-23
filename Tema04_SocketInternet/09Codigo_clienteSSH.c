@@ -13,6 +13,7 @@
  #include <sys/socket.h>
  #define MAXDATASIZE 100
  #define MAXDATASIZE_RESP 20000
+ #define PORT 3490
 
  int main(int argc, char *argv[])
  {
@@ -43,7 +44,7 @@
   }
 
   cliente.sin_family = AF_INET;    // Ordenación de bytes de la máquina
-  cliente.sin_port = htons( atoi(argv[2]) );  // short, Ordenación de bytes de la red
+  cliente.sin_port = htons( PORT );  // short, Ordenación de bytes de la red
   cliente.sin_addr = *((struct in_addr *)he->h_addr);
   memset(&(cliente.sin_zero), '\0',8);  // poner a cero el resto de la estructura
 
@@ -81,4 +82,4 @@
   close(sockfd);
 
   return 0;
-} 
+}
