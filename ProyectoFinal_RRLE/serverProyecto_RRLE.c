@@ -22,6 +22,7 @@
 
 #define LENGTH 2000
 
+//#define MYPORT 3490
 
 #define BACKLOG 10
 
@@ -47,7 +48,7 @@ int main(int argc, char *argv[ ]){
   //Se crea el conector
   struct sockaddr_in their_addr;
 
-
+  int sin_size;
 
   int sin_size_servidor;
   int sin_size_cliente;
@@ -74,7 +75,7 @@ int main(int argc, char *argv[ ]){
     my_addr.sin_family =AF_INET;
     my_addr.sin_port =htons( (u_short) atoi(argv[2]));
     my_addr.sin_addr.s_addr = INADDR_ANY;
-    printf("Server-Using %s and port %d ...\n", inet_ntoa(my_addr.sin_addr),  atoi(argv[2]));
+    printf("Server-Using %s and port %d ...\n", inet_ntoa(my_addr.sin_addr),  (u_short) atoi(argv[2]));
     memset(&(my_addr.sin_zero), '\0', 8);
 
     //Se asigna el socket al puerto, para ello utiliza el descriptor, el puntero a una estructura SOCKADDR
@@ -166,9 +167,9 @@ int main(int argc, char *argv[ ]){
         }
 
       while( strcmp(buffer,"\n") != 0 );
-      close(new_fd);
-      printf("Se ha cerrado la conexion con el cliente... Este hijo termina\n\n");
       //close(new_fd);
+      printf("Se ha cerrado la conexion con el cliente... Este hijo termina\n\n");
+      close(new_fd);
       exit( 0 );
       }//cierra el fork
       else
