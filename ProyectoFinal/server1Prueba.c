@@ -151,9 +151,9 @@ int main(int argc, char *argv[ ]){
           //printf("Conta[%d]: %s",conta,comando);
           //conta ++;
         }
-      //pclose(output);
-      }
       pclose(output);
+      }
+      //pclose(output);
       printf("Ok sent to client!\n");
 
 
